@@ -9,7 +9,8 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.wolver1n10.CheapestFlightsFounderApp"
     },
     "android": {
       "adaptiveIcon": {
