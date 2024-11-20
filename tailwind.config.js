@@ -16,14 +16,18 @@ module.exports = {
         "3xl": "32px",
       },
       colors: {
+        green: {
+          primary: "#8EA3A6",
+        },
         gray: {
           primary: "#e5e7eb",
           accent: "#69686D",
+          secondary: "#454545",
         },
         blue: {
           secondary: "#7ba8cc",
           primary: "#277bc0",
-          accent: "#15141A",
+          accent: "#0B192C",
         },
         red: {
           primary: "#c1121f",
@@ -40,7 +44,8 @@ module.exports = {
           creme: "#FFFDCB",
         },
         gold: {
-          primary: "#FFDA11",
+          primary: "#E6E9AF",
+          secondary: "#FFDA11",
         },
       },
     },

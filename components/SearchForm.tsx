@@ -11,30 +11,44 @@ export default function SearchForm() {
   const [direction, setDirection] = useState(0);
   const [open, setOpen] = useState(false);
 
+  const [goFrom, setGoFrom] = useState("");
+  const [goTo, setGoTo] = useState("");
+
   const depart = dayjs(departDate).format("D/M/YY");
   const ret =
     dayjs(returnDate).format("D/M/YY") > depart
       ? dayjs(returnDate).format("D/M/YY")
       : depart;
 
+  const PickDateStyle =
+    " flex-1 flex-row items-center justify-between rounded-md border border-gray-200 pr-3";
+
+  const Search = () => {
+    console.log("Search");
+  };
+
   return (
-    <View className=" bg-blue-accent px-3 rounded-xl gap-4 p-5">
+    <View className=" bg-blue-accent px-3 rounded-xl gap-4 py-5">
       <Text className=" color-white font-bold pb-4 pt-7 text-lg self-center">
         Find the best prices for your next trip!
       </Text>
       <TextInput
         placeholderTextColor={"#69686D"}
-        className="rounded-md border border-gray-200 p-3"
+        className="rounded-md border border-gray-200 p-3 color-white"
         placeholder="go from"
+        value={goFrom}
+        onChangeText={setGoFrom}
       />
       <TextInput
         placeholderTextColor={"#69686D"}
         placeholder="go to"
-        className="rounded-md border border-gray-200 p-3"
+        className="rounded-md border border-gray-200 p-3 color-white"
+        value={goTo}
+        onChangeText={setGoTo}
       />
       <View className=" flex-row gap-4">
         <Pressable
-          className=" flex-1 flex-row items-center justify-between rounded-md border border-gray-200 pr-3"
+          className={`${PickDateStyle}`}
           onPress={() => {
             setDirection(0);
             setOpen(true);
@@ -47,7 +61,7 @@ export default function SearchForm() {
           <Feather name="chevron-down" size={24} color="gray" />
         </Pressable>
         <Pressable
-          className=" flex-1 flex-row items-center justify-between rounded-md border border-gray-200 pr-3"
+          className={`${PickDateStyle}`}
           onPress={() => {
             setDirection(1);
             setOpen(true);
@@ -59,7 +73,10 @@ export default function SearchForm() {
           </View>
           <Feather name="chevron-down" size={24} color="gray" />
         </Pressable>
-        <Pressable className=" bg-gold-primary items-center flex-1 flex-row justify-center rounded-md  pr-3">
+        <Pressable
+          onPress={() => Search()}
+          className=" bg-gold-primary items-center flex-1 flex-row justify-center rounded-md  pr-3"
+        >
           <Text className=" text-xl font-bold">Search</Text>
         </Pressable>
       </View>

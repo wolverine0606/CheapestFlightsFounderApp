@@ -1,10 +1,23 @@
+import FlightCard from "@/components/FlightCard";
 import SearchForm from "@/components/SearchForm";
-import { StyleSheet, Text, SafeAreaView, View } from "react-native";
+import { FlightDetails } from "@/types/FlightDetails";
+import { StyleSheet, Text, SafeAreaView, View, FlatList } from "react-native";
+import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
+
+const data: FlightDetails[] = require("@/assets/data.json");
 
 export default function HomeScreen() {
+  const tabBarHeight = useBottomTabBarHeight();
+
   return (
-    <SafeAreaView className="flex-1">
+    <SafeAreaView className="flex-1 gap-4">
       <SearchForm />
+      <FlatList
+        data={data}
+        renderItem={({ item }) => <FlightCard flight={item} />}
+        showsVerticalScrollIndicator={false}
+        ListFooterComponent={<View style={{ height: tabBarHeight - 30 }} />}
+      />
     </SafeAreaView>
   );
 }

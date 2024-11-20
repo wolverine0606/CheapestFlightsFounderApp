@@ -7,15 +7,14 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "gold",
+        tabBarActiveTintColor: "#E6E9AF",
         animation: "shift",
         headerShown: false,
-        tabBarStyle: Platform.select({
-          ios: {
-            position: "absolute",
-          },
-          default: {},
-        }),
+        tabBarStyle: {
+          backgroundColor: "#0B192C",
+          borderTopWidth: 0.2,
+          borderTopColor: "white",
+        },
       }}
     >
       <Tabs.Screen
